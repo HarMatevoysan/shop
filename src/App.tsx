@@ -17,6 +17,9 @@ const App: FC = () => {
     if (localStorage.getItem("auth")) {
       setIsAuth(true);
     }
+    if (localStorage.getItem("admin")) {
+      setIsAdmin(true);
+    }
   }, []);
 
   return (
