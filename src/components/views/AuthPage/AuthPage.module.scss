@@ -1,5 +1,5 @@
 .container {
-   @media (min-width:768px) {
+   @media (max-width:768px) {
       display: flex;
       position: absolute;
       transform: translate(-50%, 47%);
