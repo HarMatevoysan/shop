@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { AuthPage, ShopPage, Navbar, InfoPage, BasketPage, AdminPanel } from "../components";
-import { BASKET_ROUTE, INFO_ROUTE, LOGIN_ROUTE, REGISTR_ROUTE, SHOP_ROUTE, ADMIN_ROUTE } from "../constants";
+import { AuthPage, ShopPage, Navbar, InfoPage, BasketPage, AdminPanel } from "../..";
+import { BASKET_ROUTE, INFO_ROUTE, LOGIN_ROUTE, REGISTR_ROUTE, SHOP_ROUTE, ADMIN_ROUTE } from "../../../constants";
 
 const AppRouter: FC = () => {
   return (

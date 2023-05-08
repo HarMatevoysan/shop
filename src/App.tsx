@@ -2,7 +2,7 @@ import { useState, useEffect, FC } from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import { useAction } from "./hooks";
-import AppRouter from "./AppRouter";
+import { Router } from "./components";
 import { ShopContext } from "./context";
 
 const App: FC = () => {
@@ -22,7 +22,7 @@ const App: FC = () => {
   return (
     <ShopContext.Provider value={{ isAuth, setIsAuth, isAdmin, setIsAdmin }}>
       <BrowserRouter>
-        <AppRouter />
+        <Router />
       </BrowserRouter>
     </ShopContext.Provider>
   );

@@ -1,4 +1,5 @@
 export { default as Navbar } from "./views/Navbar";
+export { default as Router } from "./views/Router";
 export { default as Loader } from "./views/Loader";
 export { default as InfoPage } from "./views/InfoPage";
 export { default as ShopPage } from "./views/ShopPage";
