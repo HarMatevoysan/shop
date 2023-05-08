@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 
@@ -9,7 +9,7 @@ import { ProductTypes } from "../../../store/actionTypes";
 
 import style from "./AdminPage.module.scss";
 
-const AdminPanel = () => {
+const AdminPanel: FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

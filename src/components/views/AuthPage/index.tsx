@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { FC, useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -12,7 +12,7 @@ import { LOGIN_ROUTE, REGISTR_ROUTE } from "../../../constants";
 
 import style from "./AuthPage.module.scss";
 
-const AuthPage = () => {
+const AuthPage: FC = () => {
   const dispatch = useDispatch();
   const loginState = useTypedSelector((state) => state.shop.login);
 

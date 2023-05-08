@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { FC, useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import { useTypedSelector } from "../../../hooks";
@@ -9,7 +9,7 @@ import { BASKET_ROUTE, LOGIN_ROUTE, REGISTR_ROUTE, SHOP_ROUTE, ADMIN_ROUTE } fro
 
 import style from "./Navbar.module.scss";
 
-const Navbar = () => {
+const Navbar: FC = () => {
   const { isAuth, setIsAuth, isAdmin, setIsAdmin } = useContext(ShopContext);
   const basketState = useTypedSelector((state) => state.basket.basket);
 
