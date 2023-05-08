@@ -1,0 +1,136 @@
+.content {
+   display: flex;
+   justify-content: center;
+   justify-items: center;
+
+   @media (max-width:1024px) {
+      flex-direction: column;
+      padding: 16px;
+   }
+
+   &__basket {
+      display: flex;
+      flex-direction: column;
+
+
+      &__item {
+         border: 1px solid #ced4da;
+         margin: 10px;
+         padding: 10px;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-between;
+         width: 750px;
+
+         @media (max-width:1024px) {
+            margin: 10px 0px;
+            width: 100%;
+         }
+
+         &_img {
+            height: 40px;
+         }
+
+         &_title {
+            text-align: center;
+            flex: 0 0 450px;
+
+            @media (max-width:768px) {
+               flex: 0 0 200px
+            }
+
+            @media (max-width:400px) {
+               flex: 0 0 100px
+            }
+         }
+
+         &_price {
+            font-weight: 700;
+         }
+
+         &_del {
+            padding: 7px 15px;
+            background: red;
+            border: 1px solid #ced4da;
+            font-size: 16px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+
+            @media (max-width:768px) {
+               display: none;
+            }
+
+            &_hidden {
+               padding: 7px 15px;
+               background: red;
+               border: 1px solid #ced4da;
+               font-size: 16px;
+               border-radius: 5px;
+               color: white;
+               cursor: pointer;
+
+               @media (max-width:768px) {
+                  display: block;
+               }
+            }
+         }
+
+      }
+   }
+
+   &__order {
+      flex: 0 0 200px;
+      margin: 10px 0 0 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      border: 1px solid #ced4da;
+      height: 170px;
+
+      @media (max-width:1024px) {
+         margin: 10px 0 0 0;
+
+      }
+
+      &_txt {
+         padding: 15px 0;
+         margin: 0 10px;
+         border-bottom: 1px solid #ced4da;
+         font-size: 16px;
+
+         span {
+            font-weight: 700;
+         }
+      }
+
+      &_btn {
+         margin: 15px;
+         padding: 10px 15px;
+         background: #333;
+         border: 1px solid #ced4da;
+         color: white;
+         font-size: 16px;
+         border-radius: 5px;
+         cursor: pointer;
+
+         &:hover {
+            font-weight: 700;
+         }
+      }
+   }
+
+   &__empty {
+      font-size: 40px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @media (max-width:768px) {
+         font-size: 20px;
+      }
+   }
+}
