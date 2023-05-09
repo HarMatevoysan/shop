@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 
 import { star } from "../../../asests";
-import { Loader } from "../../../components";
+import { Loader, Modal } from "../../../components";
 import { ShopContext } from "../../../context";
 import { INFO_ROUTE } from "../../../constants";
 import { useTypedSelector } from "../../../hooks";
@@ -23,6 +23,7 @@ const ShopPage: FC = () => {
 
   const [categories, setCategories] = useState("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [modal, setModal] = useState<boolean>(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -48,6 +49,11 @@ const ShopPage: FC = () => {
 
   return (
     <div className={style.row}>
+      {modal ? (
+        <Modal visible={modal} setVisible={setModal}>
+          Please login for order
+        </Modal>
+      ) : null}
       {loading ? (
         <>
           <div className={style.products}>
@@ -77,10 +83,7 @@ const ShopPage: FC = () => {
                   </div>
                   <p className={style.card__body__title}>{product.title}</p>
                 </div>
-                <button
-                  className={style.card__btn}
-                  onClick={() => (isAuth ? addBasket(product) : alert("Login for order"))}
-                >
+                <button className={style.card__btn} onClick={() => (isAuth ? addBasket(product) : setModal(true))}>
                   Add basket
                 </button>
               </div>

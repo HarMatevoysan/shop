@@ -1,6 +1,8 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 
+import { Modal } from "../../../components";
 import { useTypedSelector } from "../../../hooks";
 import { IDefaultBasket } from "../../../types/basket";
 import { ProductTypes } from "../../../store/actionTypes";
@@ -9,17 +11,25 @@ import style from "./BasketPage.module.scss";
 
 const BasketPage: FC = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const basketState = useTypedSelector((state) => state.basket.basket);
+
+  const [modal, setModal] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (!localStorage?.auth) {
+      navigate("/");
+    }
+  }, [localStorage.auth]);
 
   const handleDelete = (id: number) => {
     dispatch({ type: ProductTypes.REMOVE_BASKET, payload: id });
   };
 
   const handleOrder = () => {
-    dispatch({ type: ProductTypes.ORDER_NOW });
-
-    alert("Your order has been successfully registered");
+    setModal(true);
+    setTimeout(() => dispatch({ type: ProductTypes.ORDER_NOW }), 1000);
   };
 
   const sumOrder = basketState.reduce((a, b) => {
@@ -28,6 +38,11 @@ const BasketPage: FC = () => {
 
   return (
     <div className={style.content}>
+      {modal ? (
+        <Modal visible={modal} setVisible={setModal}>
+          Your order has been successfully registered
+        </Modal>
+      ) : null}
       {basketState.length ? (
         <>
           <div className={style.content__basket}>

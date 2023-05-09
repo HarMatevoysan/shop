@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 
 import { bigStar } from "../../../asests";
-import { Loader } from "../../../components";
 import { ShopContext } from "../../../context";
+import { Loader, Modal } from "../../../components";
 import { IDefaultState } from "../../../types/products";
 import { ProductTypes } from "../../../store/actionTypes";
 import { useTypedSelector } from "../../../hooks";
@@ -19,6 +19,7 @@ const InfoPage: FC = () => {
   const { isAuth } = useContext(ShopContext);
 
   const [loading, setLoading] = useState<boolean>(false);
+  const [modal, setModal] = useState<boolean>(false);
 
   const state: IDefaultState | any[] = useTypedSelector((state) => state.shop.products);
 
@@ -34,8 +35,14 @@ const InfoPage: FC = () => {
     dispatch({ type: ProductTypes.ADD_BASKET, payload: infoState[0] });
   };
 
+  const addBtnAction = isAuth ? addBasket : () => setModal(true);
   return (
     <>
+      {modal ? (
+        <Modal visible={modal} setVisible={setModal}>
+          Please login for order
+        </Modal>
+      ) : null}
       {loading ? (
         <div className={style.content}>
           <div className={style.content__header}>
@@ -51,10 +58,7 @@ const InfoPage: FC = () => {
                 <p className={style.content__header__basket_price_txt}>Price`</p>
                 {infoState[0].price}$
               </div>
-              <button
-                className={style.content__header__add}
-                onClick={isAuth ? addBasket : () => alert("Login for order")}
-              >
+              <button className={style.content__header__add} onClick={addBtnAction}>
                 Add to basket
               </button>
             </div>

@@ -1,3 +1,4 @@
+export { default as Modal } from "./views/Modal";
 export { default as Navbar } from "./views/Navbar";
 export { default as Router } from "./views/Router";
 export { default as Loader } from "./views/Loader";

@@ -30,7 +30,7 @@ const AdminPanel: FC = () => {
     if (!localStorage?.admin) {
       navigate("/");
     }
-  }, []);
+  }, [localStorage.admin]);
 
   const setProduct = () => {
     setNewProduct(!newProduct);
