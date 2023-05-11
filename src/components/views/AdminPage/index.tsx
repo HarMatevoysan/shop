@@ -15,16 +15,16 @@ const AdminPanel: FC = () => {
 
   const state = useTypedSelector((state) => state.shop);
 
+  const [users, setUsers] = useState<boolean>(false);
   const [newProduct, setNewProduct] = useState<boolean>(false);
   const [newCategory, setNewCategory] = useState<boolean>(false);
-  const [users, setUsers] = useState<boolean>(false);
 
-  const [img, setImg] = useState<string>(noImg);
+  const [desc, setDesc] = useState<string>();
   const [title, setTitle] = useState<string>();
   const [price, setPrice] = useState<number>();
-  const [categoryValue, setCategoryValue] = useState<string>();
-  const [desc, setDesc] = useState<string>();
+  const [img, setImg] = useState<string>(noImg);
   const [categoryNew, setCategoryNew] = useState<string>();
+  const [categoryValue, setCategoryValue] = useState<string>();
 
   useEffect(() => {
     if (!localStorage?.admin) {

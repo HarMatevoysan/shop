@@ -8,12 +8,13 @@ const AppRouter: FC = () => {
   return (
     <>
       <Navbar />
+
       <Routes>
-        <Route path={SHOP_ROUTE} index element={<ShopPage />} />
-        <Route path={REGISTR_ROUTE} element={<AuthPage />} />
         <Route path={LOGIN_ROUTE} element={<AuthPage />} />
-        <Route path={BASKET_ROUTE} element={<BasketPage />} />
+        <Route path={REGISTR_ROUTE} element={<AuthPage />} />
         <Route path={ADMIN_ROUTE} element={<AdminPanel />} />
+        <Route path={BASKET_ROUTE} element={<BasketPage />} />
+        <Route path={SHOP_ROUTE} index element={<ShopPage />} />
         <Route path={INFO_ROUTE + "/:id"} element={<InfoPage />} />
       </Routes>
     </>

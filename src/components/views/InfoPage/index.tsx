@@ -4,10 +4,10 @@ import { useParams } from "react-router";
 
 import { bigStar } from "../../../asests";
 import { ShopContext } from "../../../context";
+import { useTypedSelector } from "../../../hooks";
 import { Loader, Modal } from "../../../components";
 import { IDefaultState } from "../../../types/products";
 import { ProductTypes } from "../../../store/actionTypes";
-import { useTypedSelector } from "../../../hooks";
 
 import style from "./InfoPage.module.scss";
 
@@ -18,8 +18,8 @@ const InfoPage: FC = () => {
 
   const { isAuth } = useContext(ShopContext);
 
-  const [loading, setLoading] = useState<boolean>(false);
   const [modal, setModal] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const state: IDefaultState | any[] = useTypedSelector((state) => state.shop.products);
 
@@ -36,6 +36,7 @@ const InfoPage: FC = () => {
   };
 
   const addBtnAction = isAuth ? addBasket : () => setModal(true);
+
   return (
     <>
       {modal ? (

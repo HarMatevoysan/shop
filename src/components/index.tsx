@@ -7,3 +7,4 @@ export { default as ShopPage } from "./views/ShopPage";
 export { default as AuthPage } from "./views/AuthPage";
 export { default as AdminPanel } from "./views/AdminPage";
 export { default as BasketPage } from "./views/BasketPage";
+export { default as Pagination } from "./views/Pagination";

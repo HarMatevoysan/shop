@@ -14,11 +14,10 @@ import style from "./AuthPage.module.scss";
 
 const AuthPage: FC = () => {
   const dispatch = useDispatch();
-  const loginState = useTypedSelector((state) => state.shop.login);
-
+  const navigate = useNavigate();
   const loacation = useLocation();
 
-  const navigate = useNavigate();
+  const loginState = useTypedSelector((state) => state.shop.login);
 
   const { setIsAuth, setIsAdmin } = useContext(ShopContext);
 

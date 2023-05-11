@@ -11,6 +11,7 @@ import style from "./Navbar.module.scss";
 
 const Navbar: FC = () => {
   const { isAuth, setIsAuth, isAdmin, setIsAdmin } = useContext(ShopContext);
+
   const basketState = useTypedSelector((state) => state.basket.basket);
 
   const logOut = () => {
